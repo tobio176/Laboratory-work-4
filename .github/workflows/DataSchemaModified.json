@@ -13,7 +13,7 @@
         "properties": {
           "_id": { "type": "string", "pattern": "^[0-9a-fA-F]{24}$" },
           "login": {
-            "type": "string",
+            "type": "string"
             "description": "Unique login (3-20 chars: a-z, 0-9, _, -)",
             "pattern": "^[a-zA-Z0-9_-]{3,20}$"
           },
