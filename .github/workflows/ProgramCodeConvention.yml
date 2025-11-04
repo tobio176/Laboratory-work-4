@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '**.js'
-      - '.github/workflows/**.yml'
+      - '.github/workflows/ProgramCodeConvention.yml'
   workflow_dispatch:
 
 jobs:
@@ -14,8 +14,8 @@ jobs:
       - name: Checkout Code in Repository
         uses: actions/checkout@v3
 
-      - name: Install JSON Linter Biome
+      - name: Install JS Linter (Biome)
         run: npm install --save-dev --save-exact @biomejs/biome
 
-      - name: Validate all js-file
+      - name: Validate all .js files
         run: npx @biomejs/biome check *.js
