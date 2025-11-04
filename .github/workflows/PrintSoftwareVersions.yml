@@ -1,0 +1,25 @@
+name: Print Software Versions
+
+# Запускати при push або вручну
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  PrintNodeVersion:
+    # 1. Перша робота: Рівень обробки даних (BL)
+    name: Print Business Level Versions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Node.js Version
+        run: node --version
+
+  PrintMongoDBVersion:
+    # 2. Друга робота: Рівень доступу даних (AL)
+    name: Print Access Level Versions
+    runs-on: ubuntu-latest
+    # Запускається після першої роботи
+    needs: PrintNodeVersion
+    steps:
+      - name: Print MongoDB Version
+        run: docker run mongo:8.0.1 mongod --version
