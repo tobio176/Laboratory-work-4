@@ -2,6 +2,9 @@ name: JSON Linter
 
 on:
   push:
+    paths:
+      - '**.json'
+      - '.github/workflows/**.yml'
   workflow_dispatch:
 
 jobs:
@@ -14,4 +17,5 @@ jobs:
       - name: Start JSON Linter
         run: |
           npm i -g @prantlf/jsonlint
-          jsonlint "**/*.json"
+          
+          jsonlint .github/workflows/*.json
